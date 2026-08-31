@@ -11,7 +11,12 @@ import {
   listWorkOrders,
   updateWorkOrderStatus,
 } from "../controllers/workOrder.js";
-import { generateInvoice, getInvoice } from "../controllers/invoice.js";
+import {
+  emailInvoice,
+  generateInvoice,
+  getInvoice,
+  getInvoicePdf,
+} from "../controllers/invoice.js";
 
 const router = Router();
 
@@ -27,5 +32,7 @@ router.put(
 );
 router.post("/work-orders/:id/invoice", generateInvoice);
 router.get("/invoices/:id", getInvoice);
+router.get("/invoices/:id/pdf", getInvoicePdf);
+router.post("/invoices/:id/send-email", emailInvoice);
 
 export default router;
