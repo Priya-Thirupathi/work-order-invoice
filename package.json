@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently -n api,web -c blue,green \"npm --prefix server run dev\" \"npm --prefix client run dev\""
+    "dev": "concurrently -n api,web -c blue,green \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build:client": "npm --prefix client install && npm --prefix client run build",
+    "build:server": "npm --prefix server install && npm --prefix server run build",
+    "build": "npm run build:client && npm run build:server",
+    "start": "npm --prefix server run start"
   },
   "keywords": [],
   "author": "",
